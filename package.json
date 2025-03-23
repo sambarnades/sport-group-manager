@@ -1,6 +1,6 @@
 {
   "name": "SportGroupManager",
-  "private": true,
+  "private": false,
   "version": "0.0.1",
   "type": "module",
   "scripts": {
@@ -50,5 +50,9 @@
     "vite": "~5.2.0",
     "vitest": "^0.34.6"
   },
-  "description": "An Ionic project"
+  "description": "An app to manage sport groups thanks to customized form.",
+  "main": "src/main.tsx",
+  "repository": "https://github.com/sambarnades/sport-group-manager",
+  "author": "Samuel Barnades <samuel.barnades@gmail.com>",
+  "license": "MIT"
 }
