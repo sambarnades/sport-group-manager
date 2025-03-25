@@ -1,0 +1,131 @@
+{
+  "questions": [
+    {
+      "question": "Qu'est-ce que tu fais lorsque tu es en désaccord avec la stratégie de ton équipe?",
+      "answers": {
+        "rebel": "Je refuse de jouer si je ne suis pas d'accord",
+        "cooperator": "Je propose une alternative",
+        "leader": "Je prends la décision finale",
+        "follower": "Je fais ce que l'on me dit de faire"
+      }
+    },
+    {
+      "question": "Comment te sens-tu lorsque tu es choisi pour être le leader de ton équipe?",
+      "answers": {
+        "rebel": "Je ne veux pas être responsable de la défaite",
+        "cooperator": "Je suis un peu nerveux, mais je vais essayer",
+        "leader": "Je suis ravi et je me sens prêt",
+        "follower": "Je préfère que quelqu'un d'autre prenne la tête"
+      }
+    },
+    {
+      "question": "Qu'est-ce que tu penses de la compétition?",
+      "answers": {
+        "rebel": "Je dois gagner à tout prix",
+        "cooperator": "C'est amusant et cela me motive",
+        "leader": "C'est une occasion de montrer mes capacités",
+        "follower": "Je ne m'en soucie pas trop"
+      }
+    },
+    {
+      "question": "Comment réagis-tu lorsque ton équipe perd?",
+      "answers": {
+        "rebel": "Je suis en colère et je veux savoir pourquoi on a perdu",
+        "cooperator": "Je suis déçu, mais je vais essayer de faire mieux la prochaine fois",
+        "leader": "Je prends la responsabilité de la défaite et je vais essayer de faire mieux la prochaine fois",
+        "follower": "Je suis désolé, mais je vais continuer à jouer"
+      }
+    },
+    {
+      "question": "Qu'est-ce que tu penses de l'équipe de travail?",
+      "answers": {
+        "rebel": "Je préfère travailler seul",
+        "cooperator": "C'est important de travailler ensemble",
+        "leader": "Je veux être le leader de l'équipe",
+        "follower": "Je suis heureux de suivre les instructions de l'équipe"
+      }
+    },
+    {
+      "question": "Comment te sens-tu lorsque tu es dans une situation difficile?",
+      "answers": {
+        "rebel": "Je suis en colère et je veux résoudre le problème moi-même",
+        "cooperator": "Je suis calme et je vais essayer de trouver une solution",
+        "leader": "Je vais prendre la décision et je vais essayer de résoudre le problème",
+        "follower": "Je suis stressé et je veux que quelqu'un d'autre prenne la décision"
+      }
+    },
+    {
+      "question": "Qu'est-ce que tu penses de la communication dans l'équipe?",
+      "answers": {
+        "rebel": "Je ne vois pas l'intérêt de communiquer",
+        "cooperator": "C'est important de communiquer clairement",
+        "leader": "Je veux être le leader de la communication",
+        "follower": "Je suis heureux de suivre les instructions et de ne pas avoir à communiquer"
+      }
+    },
+    {
+      "question": "Comment te sens-tu lorsque tu es dans une situation où tu dois prendre une décision rapide?",
+      "answers": {
+        "rebel": "Je suis en colère et je veux prendre la décision moi-même",
+        "cooperator": "Je suis calme et je vais essayer de prendre la décision la plus éclairée",
+        "leader": "Je vais prendre la décision et je vais essayer de faire le meilleur choix",
+        "follower": "Je suis stressé et je veux que quelqu'un d'autre prenne la décision"
+      }
+    },
+    {
+      "question": "Qu'est-ce que tu penses de la responsabilité?",
+      "answers": {
+        "rebel": "Je ne veux pas être responsable",
+        "cooperator": "C'est important de prendre ses responsabilités",
+        "leader": "Je veux être le leader et prendre les responsabilités",
+        "follower": "Je suis heureux de suivre les instructions et de ne pas avoir à en prendre"
+      }
+    },
+    {
+      "question": "Qu'est-ce que tu ferais si tu devais choisir entre deux options qui sont toutes les deux importantes pour toi ?",
+      "answers": {
+        "rebel": "Je choisirais l'option qui me permet de prendre le contrôle de la situation",
+        "cooperator": "Je choisirais l'option qui me permet de travailler avec les autres pour trouver une solution",
+        "leader": "Je choisirais l'option qui me permet de prendre la décision finale",
+        "follower": "Je demanderais l'avis des autres avant de prendre une décision"
+      }
+    },
+    {
+      "question": "Comment tu gères les conflits avec les autres ?",
+      "answers": {
+        "rebel": "Je défends mes opinions et je suis prêt à prendre des risques pour les défendre",
+        "cooperator": "Je cherche à trouver un compromis qui convienne à tout le monde",
+        "leader": "Je prends la décision finale et je m'assure que tout le monde la respecte",
+        "follower": "Je laisse les autres prendre la décision et je suis d'accord avec eux"
+      }
+    },
+    {
+      "question": "Qu'est-ce que tu fais lorsque tu rencontres une situation difficile ?",
+      "answers": {
+        "rebel": "Je cherche à trouver une solution innovante et je suis prêt à prendre des risques",
+        "cooperator": "Je cherche à trouver une solution qui convienne à tout le monde",
+        "leader": "Je prends la décision finale et je m'assure que tout le monde la respecte",
+        "follower": "Je demande l'aide des autres pour trouver une solution"
+      }
+    },
+    {
+      "question": "Comment tu prends les décisions importantes ?",
+      "answers": {
+        "rebel": "Je prends les décisions rapidement et je suis prêt à prendre des risques",
+        "cooperator": "Je prends les décisions en tenant compte des opinions des autres",
+        "leader": "Je prends les décisions finales et je m'assure que tout le monde les respecte",
+        "follower": "Je laisse les autres prendre les décisions importantes"
+      }
+    },
+    {
+      "question": "Qu'est-ce que tu fais lorsque tu rencontres une personne qui a une opinion différente de la tienne ?",
+      "answers": {
+        "rebel": "Je défends mes opinions et je suis prêt à débattre",
+        "cooperator": "Je cherche à comprendre l'opinion de l'autre personne et à trouver un compromis",
+        "leader": "Je prends la décision finale et je m'assure que tout le monde la respecte",
+        "follower": "Je suis d'accord avec l'autre personne pour éviter les conflits"
+      }
+    }
+    
+  ]
+}
