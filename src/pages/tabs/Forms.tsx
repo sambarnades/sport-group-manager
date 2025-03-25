@@ -16,15 +16,24 @@ import { addOutline, createOutline } from "ionicons/icons";
 
 import mock from "../../mock/questions.json";
 const questions = mock.questions;
+const sets: any = [];
 
-const getQuestionSets = () => {
+const getQuestionSets = (questionsInSet: number) => {
   const amountOfQuestions = questions.length;
-  const sets = Math.floor(amountOfQuestions / 10) + 1;
-  return sets;
+  const amountOfSets = Math.floor(amountOfQuestions / questionsInSet) + 1; // By 10
+
+  for (let index = 0; index < amountOfSets; index++) {
+    let set = questions.slice(
+      index * questionsInSet,
+      (index + 1) * questionsInSet
+    );
+
+    // console.log(set);
+    sets.push(set);
+  }
 };
 
-const amountOfSets = getQuestionSets();
-console.log(amountOfSets);
+getQuestionSets(10);
 
 const Forms: React.FC = () => {
   return (
@@ -48,45 +57,47 @@ const Forms: React.FC = () => {
 
           {/* -------------------------- MAIN CONTENT -------------------------------- */}
 
-          <div className="flex">
-            <div className=" p-5">
-              <IonAccordionGroup className="" expand="inset">
-                {/* Find a solution to divide by 10 the accordions */}
+          <div className="flex basis-11/12 m-5">
+              {/* Find a solution to divide by 10 the accordions */}
 
-                {questions.map((item, index) => (
-                  <IonAccordion key={index + 1} value={`item-${index + 1}`}>
-                    <IonItem slot="header" color="light">
-                      <IonIcon icon={createOutline} className="w-6 h-6" />
-                      <p className="ion-padding">
-                        <strong>Question {index + 1}</strong>
-                        <br />
-                        {item.question}
-                      </p>
-                    </IonItem>
-                    <div className="ion-padding" slot="content">
-                      <div className="flex">
-                        <p className="basis-3/12">Rebel</p>
-                        <p className="basis-9/12">{item.answers.rebel}</p>
+              {sets.map((set: Array<object>, index: number) => (
+                <IonAccordionGroup key={index} className="basis-6/12 p-2" expand="inset">
+                  {set.map((item: any, index: number) => (
+                    <IonAccordion key={index + 1} value={`item-${index + 1}`}>
+                      <IonItem slot="header" color="light">
+                        <IonIcon icon={createOutline} className="w-6 h-6" />
+                        <p className="ion-padding">
+                          <strong>Question {item.id}</strong>
+                          <br />
+                          {item.question}
+                        </p>
+                      </IonItem>
+                      <div className="ion-padding" slot="content">
+                        <div className="flex">
+                          <p className="basis-3/12">Rebel</p>
+                          <p className="basis-9/12">{item.answers.rebel}</p>
+                        </div>
+                        <div className="flex">
+                          <p className="basis-3/12">Cooperator</p>
+                          <p className="basis-9/12">
+                            {item.answers.cooperator}
+                          </p>
+                        </div>
+                        <div className="flex">
+                          <p className="basis-3/12">Leader</p>
+                          <p className="basis-9/12">{item.answers.leader}</p>
+                        </div>
+                        <div className="flex">
+                          <p className="basis-3/12">Follower</p>
+                          <p className="basis-9/12">{item.answers.follower}</p>
+                        </div>
                       </div>
-                      <div className="flex">
-                        <p className="basis-3/12">Cooperator</p>
-                        <p className="basis-9/12">{item.answers.cooperator}</p>
-                      </div>
-                      <div className="flex">
-                        <p className="basis-3/12">Leader</p>
-                        <p className="basis-9/12">{item.answers.leader}</p>
-                      </div>
-                      <div className="flex">
-                        <p className="basis-3/12">Follower</p>
-                        <p className="basis-9/12">{item.answers.follower}</p>
-                      </div>
-                    </div>
-                  </IonAccordion>
-                ))}
-              </IonAccordionGroup>
+                    </IonAccordion>
+                  ))}
+                </IonAccordionGroup>
+              ))}
             </div>
           </div>
-        </div>
       </IonContent>
     </IonPage>
   );
