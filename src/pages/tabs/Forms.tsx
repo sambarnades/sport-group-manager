@@ -33,7 +33,7 @@ const getQuestionSets = (questionsInSet: number) => {
   }
 };
 
-getQuestionSets(10);
+getQuestionSets(8);
 
 const Forms: React.FC = () => {
   return (
@@ -66,11 +66,11 @@ const Forms: React.FC = () => {
                     <IonAccordion key={index + 1} value={`item-${index + 1}`}>
                       <IonItem slot="header" color="light">
                         <IonIcon icon={createOutline} className="w-6 h-6" />
-                        <p className="ion-padding">
+                        <IonLabel className="ion-padding">
                           <strong>Question {item.id}</strong>
-                          <br />
+                        <br />
                           {item.question}
-                        </p>
+                        </IonLabel>
                       </IonItem>
                       <div className="ion-padding" slot="content">
                         <div className="flex">
