@@ -1,4 +1,17 @@
-ion-accordion.accordion-expanding,
-ion-accordion.accordion-expanded {
-    margin: 1em 0em;
+
+/* Custom style for Android Version." */
+
+.md ion-accordion.accordion-expanding,
+.md ion-accordion.accordion-expanded {
+    margin: 1rem 0rem;
 }
+
+/* Bug position fix with FA buttons." */
+
+  .fab-list-side-top{
+    bottom: 4rem;
+  }
+
+  .fab-list-side-top ion-fab-button{
+    margin-bottom: 10px;
+  }

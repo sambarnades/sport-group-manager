@@ -8,11 +8,14 @@ import {
   IonAccordionGroup,
   IonItem,
   IonButton,
+  IonFab,
+  IonFabButton,
+  IonFabList,
 } from "@ionic/react";
 
 import "./Forms.css";
 
-import { addOutline, createOutline } from "ionicons/icons";
+import { add, createOutline, documentOutline } from "ionicons/icons";
 
 import mock from "../../mock/questions.json";
 const questions = mock.questions;
@@ -20,7 +23,7 @@ const sets: any = [];
 
 const getQuestionSets = (questionsInSet: number) => {
   const amountOfQuestions = questions.length;
-  const amountOfSets = Math.floor(amountOfQuestions / questionsInSet) + 1; // By 10
+  const amountOfSets = Math.floor(amountOfQuestions / questionsInSet) + 1;
 
   for (let index = 0; index < amountOfSets; index++) {
     let set = questions.slice(
@@ -33,7 +36,7 @@ const getQuestionSets = (questionsInSet: number) => {
   }
 };
 
-getQuestionSets(8);
+getQuestionSets(8); // By 10 Can be modified
 
 const Forms: React.FC = () => {
   return (
@@ -41,34 +44,34 @@ const Forms: React.FC = () => {
       <IonContent fullscreen>
         {/* Start of content */}
 
-        {/* ------------------------- SIDEBAR ------------------------- */}
-
         <div id="container" className="flex h-full">
+          {/* ------------------------- SIDEBAR ------------------------- */}
+
           <div className="bg-slate-400">
-            <div className="grid grid-cols-1">
+            <nav className="grid grid-cols-1">
               <IonButton className="aspect-square m-2 flex justify-center items-center">
                 <IonLabel>S1</IonLabel>
               </IonButton>
-            </div>
-            <IonButton className="aspect-square absolute bottom-15 m-2 flex justify-center items-center">
-              <IonIcon icon={addOutline} />
-            </IonButton>
+            </nav>
           </div>
 
           {/* -------------------------- MAIN CONTENT -------------------------------- */}
-
-          <div className="flex basis-11/12 m-5">
-              {/* Find a solution to divide by 10 the accordions */}
-
+          <section className="basis-11/12 ml-10 mt-5">
+            <h1>Forms</h1>
+            <div className="flex pt-5">
               {sets.map((set: Array<object>, index: number) => (
-                <IonAccordionGroup key={index} className="basis-6/12 p-2" expand="inset">
+                <IonAccordionGroup
+                  key={index}
+                  className="basis-6/12 mr-5"
+                  expand="inset"
+                >
                   {set.map((item: any, index: number) => (
                     <IonAccordion key={index + 1} value={`item-${index + 1}`}>
                       <IonItem slot="header" color="light">
                         <IonIcon icon={createOutline} className="w-6 h-6" />
                         <IonLabel className="ion-padding">
                           <strong>Question {item.id}</strong>
-                        <br />
+                          <br />
                           {item.question}
                         </IonLabel>
                       </IonItem>
@@ -96,8 +99,26 @@ const Forms: React.FC = () => {
                   ))}
                 </IonAccordionGroup>
               ))}
+
+              {/* -------------------------- FAB BUTTON -------------------------------- */}
             </div>
-          </div>
+
+            
+          </section>
+        </div>
+        <IonFab slot="fixed" horizontal="end" vertical="bottom">
+              <IonFabButton>
+                <IonIcon icon={add}></IonIcon>
+              </IonFabButton>
+              <IonFabList side="top">
+                <IonFabButton>
+                  <IonIcon icon={documentOutline}></IonIcon>
+                </IonFabButton>
+                <IonFabButton>
+                  <IonIcon icon={add}></IonIcon>
+                </IonFabButton>
+              </IonFabList>
+            </IonFab>
       </IonContent>
     </IonPage>
   );
