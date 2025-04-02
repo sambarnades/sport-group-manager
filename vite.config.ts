@@ -11,6 +11,7 @@ export default defineConfig({
     react(),
     legacy(),
     tailwindcss(),
+
   ],
   test: {
     globals: true,
