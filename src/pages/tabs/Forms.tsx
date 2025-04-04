@@ -17,31 +17,30 @@ import "./Forms.css";
 import { add, createOutline, documentOutline } from "ionicons/icons";
 import supabase from "../../../supabaseClient";
 
-import mock from "../../mock/questions.json";
-
 const Forms: React.FC = () => {
   /* ------------ INITIALIZE DATABASE ------------- */
   /* SUPABASE */
 
-  const [questionSets, setQuestionSets] = useState<any>([]);
+  const [questions, setQuestions] = useState<any>([]);
   const [questionSetsArray, setQuestionSetsArray] = useState<any>([]);
 
-  useEffect(() => {
-    async function getQuestionSetsArray() {
-      let { data: questionSetsArray, error } = await supabase
-        .from("questionSets")
-        .select("id")
-        .range(0, 9); // 10 items
+  // useEffect(() => {
 
-      // console.log(questionSetsArray);
+  //   async function getQuestionSetsArray() {
+  //     let { data: questionSetsArray, error } = await supabase
+  //       .from("questionSets")
+  //       .select("id")
+  //       .range(0, 9); // 10 items
 
-      error
-        ? console.log("Error fetching question sets:", error)
-        : //console.table(questionSetsArray),
-        setQuestionSetsArray(questionSetsArray);
-    }
-    getQuestionSetsArray();
-  }, []);
+  //     // console.log(questionSetsArray);
+
+  //     error
+  //       ? console.log("Error fetching question sets:", error)
+  //       : //console.table(questionSetsArray),
+  //       setQuestionSetsArray(questionSetsArray);
+  //   }
+  //   getQuestionSetsArray();
+  // }, []);
 
   useEffect(() => {
     async function pullQuestionSets(id: number) {
@@ -52,21 +51,23 @@ const Forms: React.FC = () => {
 
       error
         ? console.log("Error fetching questions:", error)
-        : //console.table(questionSets),
-        setQuestionSets(questionSets);
+        : console.table(questionSets),
+        questionSets && setQuestions(questionSets[0].set.questions);
     }
-    pullQuestionSets(0); // 0 is the id of the question set to be fetched
-  }, []);
 
-  // const questions = questionSets.set.questions;
-  console.table(questionSets);
+    pullQuestionSets(0);
+  });
+
+  // CONTINUE HERE
+
+  // console.table(questions);
   const sets: any = [];
 
   /* ------------ PREPARE SETS FROM DATABASE ------------- */
 
-  const getQuestionSets = (questionsInSet: number) => {
-    const amountOfQuestions = questions.length;
-    const amountOfSets = Math.floor(amountOfQuestions / questionsInSet) + 1;
+  const getQuestionSet = (questionsInSet: number) => {
+    const questionSetLength = questions.length;
+    const amountOfSets = Math.floor(questionSetLength / questionsInSet) + 1;
 
     for (let index = 0; index < amountOfSets; index++) {
       let set = questions.slice(
@@ -79,7 +80,7 @@ const Forms: React.FC = () => {
     }
   };
 
-  getQuestionSets(8); // By 10 Can be modified
+  getQuestionSet(8); // By 10 Can be modified
 
   /* ------------ RETURN ------------- */
 
@@ -119,41 +120,43 @@ const Forms: React.FC = () => {
                   expand="inset"
                 >
                   {set.map((item: any, index: number) => {
-                    
                     // console.table(item);
-                    
-                    return(
-                    <IonAccordion key={index + 1} value={`item-${index + 1}`}>
-                      <IonItem slot="header" color="light">
-                        <IonIcon icon={createOutline} className="w-6 h-6" />
-                        <IonLabel className="ion-padding">
-                          <strong>Question {item.id}</strong>
-                          <br />
-                          {item.question}
-                        </IonLabel>
-                      </IonItem>
-                      <div className="ion-padding" slot="content">
-                        <div className="flex">
-                          <p className="basis-3/12">Rebel</p>
-                          <p className="basis-9/12">{item.answers.rebel}</p>
+
+                    return (
+                      <IonAccordion key={index + 1} value={`item-${index + 1}`}>
+                        <IonItem slot="header" color="light">
+                          <IonIcon icon={createOutline} className="w-6 h-6" />
+                          <IonLabel className="ion-padding">
+                            <strong>Question {item.id}</strong>
+                            <br />
+                            {item.question}
+                          </IonLabel>
+                        </IonItem>
+                        <div className="ion-padding" slot="content">
+                          <div className="flex">
+                            <p className="basis-3/12">Rebel</p>
+                            <p className="basis-9/12">{item.answers.rebel}</p>
+                          </div>
+                          <div className="flex">
+                            <p className="basis-3/12">Cooperator</p>
+                            <p className="basis-9/12">
+                              {item.answers.cooperator}
+                            </p>
+                          </div>
+                          <div className="flex">
+                            <p className="basis-3/12">Leader</p>
+                            <p className="basis-9/12">{item.answers.leader}</p>
+                          </div>
+                          <div className="flex">
+                            <p className="basis-3/12">Follower</p>
+                            <p className="basis-9/12">
+                              {item.answers.follower}
+                            </p>
+                          </div>
                         </div>
-                        <div className="flex">
-                          <p className="basis-3/12">Cooperator</p>
-                          <p className="basis-9/12">
-                            {item.answers.cooperator}
-                          </p>
-                        </div>
-                        <div className="flex">
-                          <p className="basis-3/12">Leader</p>
-                          <p className="basis-9/12">{item.answers.leader}</p>
-                        </div>
-                        <div className="flex">
-                          <p className="basis-3/12">Follower</p>
-                          <p className="basis-9/12">{item.answers.follower}</p>
-                        </div>
-                      </div>
-                    </IonAccordion>
-                  )})}
+                      </IonAccordion>
+                    );
+                  })}
                 </IonAccordionGroup>
               ))}
 
